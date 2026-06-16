@@ -314,7 +314,20 @@
       </div>
     </section>
 
+    <!-- Navigation Arrows -->
+    <button class="nav-arrow nav-arrow-up" aria-label="Seção anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+    <button class="nav-arrow nav-arrow-down" aria-label="Próxima seção">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+
     <script>
+      // Fade animation on scroll
       const items = document.querySelectorAll(".fade");
 
       const observer = new IntersectionObserver(
@@ -327,6 +340,75 @@
       );
 
       items.forEach((item) => observer.observe(item));
+
+      // Section navigation
+      const sections = document.querySelectorAll("section");
+      let currentSection = 0;
+      let isScrolling = false;
+      const scrollCooldown = 1000; // 1 segundo entre navegações
+
+      function navigateToSection(index) {
+        if (index < 0) index = 0;
+        if (index >= sections.length) index = sections.length - 1;
+
+        if (index !== currentSection) {
+          currentSection = index;
+          const targetSection = sections[currentSection];
+          targetSection.scrollIntoView({ behavior: "smooth" });
+          isScrolling = true;
+          setTimeout(() => (isScrolling = false), scrollCooldown);
+        }
+      }
+
+      function nextSection() {
+        if (!isScrolling) navigateToSection(currentSection + 1);
+      }
+
+      function prevSection() {
+        if (!isScrolling) navigateToSection(currentSection - 1);
+      }
+
+      // Wheel scroll navigation
+      document.addEventListener("wheel", (e) => {
+        if (isScrolling) return;
+
+        const deltaY = e.deltaY;
+        if (deltaY > 0) {
+          nextSection();
+        } else if (deltaY < 0) {
+          prevSection();
+        }
+      });
+
+      // Arrow keys navigation
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown") {
+          nextSection();
+        } else if (e.key === "ArrowUp") {
+          prevSection();
+        }
+      });
+
+      // Button navigation
+      const navUpBtn = document.querySelector(".nav-arrow-up");
+      const navDownBtn = document.querySelector(".nav-arrow-down");
+
+      navUpBtn.addEventListener("click", prevSection);
+      navDownBtn.addEventListener("click", nextSection);
+
+      // Track which section is in view
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              currentSection = Array.from(sections).indexOf(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 },
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
     </script>
   </body>
 </html>
