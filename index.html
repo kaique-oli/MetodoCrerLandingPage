@@ -153,9 +153,47 @@
         ]
       }
     </script>
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+
+      fbq("init", "703587204586967");
+      fbq("track", "PageView");
+    </script>
+    <!-- End Meta Pixel Code -->
   </head>
 
   <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=703587204586967&ev=PageView&noscript=1"
+      />
+    </noscript>
     <main>
       <section class="dark" id="abertura">
         <div class="container center fade">
@@ -318,9 +356,9 @@
             <h3>
               O problema, muitas vezes, não é falta de amor. É falta de direção.
             </h3>
-            <a class="cta" href="https://go.hotmart.com/C106179245O?dp=1"
-              >Quero começar a restauração do meu casamento</a
-            >
+            <a class="cta" href="https://go.hotmart.com/C106179245O?dp=1">
+              Quero começar a restauração do meu casamento
+            </a>
           </div>
         </div>
       </section>
@@ -394,9 +432,9 @@
               />
             </div>
 
-            <a class="cta" href="https://go.hotmart.com/C106179245O?dp=1"
-              >Quero ser guiado nessa restauração</a
-            >
+            <a class="cta" href="https://go.hotmart.com/C106179245O?dp=1">
+              Quero ser guiado nessa restauração
+            </a>
           </article>
         </div>
       </section>
@@ -437,9 +475,9 @@
               e orientação para aplicar sozinho ou em casal.
             </p>
             <div class="price" itemprop="price">R$ 87,00</div>
-            <a class="cta" href="https://go.hotmart.com/C106179245O?dp=1"
-              >Sim, quero acessar agora</a
-            >
+            <a class="cta" href="https://go.hotmart.com/C106179245O?dp=1">
+              Sim, quero acessar agora
+            </a>
             <p class="small">Garantia incondicional de 7 dias.</p>
           </article>
         </div>
@@ -549,9 +587,9 @@
             Você não precisa ter todas as respostas hoje. Precisa apenas decidir
             começar com direção.
           </p>
-          <a class="cta" href="https://go.hotmart.com/C106179245O?dp=1"
-            >Quero restaurar meu casamento</a
-          >
+          <a class="cta" href="https://go.hotmart.com/C106179245O?dp=1">
+            Quero restaurar meu casamento
+          </a>
           <p class="small">Acesso imediato + garantia de 7 dias</p>
         </div>
       </section>
@@ -662,6 +700,13 @@
       );
 
       sections.forEach((section) => sectionObserver.observe(section));
+    </script>
+    <script>
+      document.querySelectorAll('a[href*="hotmart.com"]').forEach((link) => {
+        link.addEventListener("click", () => {
+          fbq("track", "InitiateCheckout");
+        });
+      });
     </script>
   </body>
 </html>
