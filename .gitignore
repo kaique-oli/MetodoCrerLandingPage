@@ -1,0 +1,86 @@
+# ==========================
+# Node
+# ==========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================
+# Build
+# ==========================
+dist/
+dist-ssr/
+.vite/
+
+# ==========================
+# Cache
+# ==========================
+.cache/
+.parcel-cache/
+.eslintcache
+
+# ==========================
+# Logs
+# ==========================
+logs/
+*.log
+
+# ==========================
+# IDEs
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# Windows
+# ==========================
+Thumbs.db
+Desktop.ini
+
+# ==========================
+# macOS
+# ==========================
+.DS_Store
+
+# ==========================
+# Environment
+# ==========================
+.env
+.env.*
+!.env.example
+
+# ==========================
+# Temporary files
+# ==========================
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# ==========================
+# Generated images
+# ==========================
+assets-optimized/
+
+# Se você decidir gerar os .avif
+# apenas durante o build e não versioná-los:
+# assets/**/*.avif
+
+# ==========================
+# Coverage / Tests
+# ==========================
+coverage/
+.nyc_output/
+
+# ==========================
+# Cloudflare
+# ==========================
+.wrangler/
+
+# ==========================
+# Misc
+# ==========================
+*.pid
+*.seed

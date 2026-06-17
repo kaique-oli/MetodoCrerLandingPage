@@ -56,9 +56,9 @@
     <!-- Favicon & Theme -->
     <link
       rel="icon"
-      type="image/png"
+      type="image/avif"
       sizes="16x16"
-      href="assets/favicon/favicons/favicon-16x16.png"
+      href="assets/favicon/favicons/favicon-16x16.avif"
     />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="theme-color" content="#ffffff" />
@@ -387,7 +387,7 @@
         <div class="container guides-grid fade">
           <article class="guides-photo">
             <img
-              src="assets/casal.jpeg"
+              src="assets/casal.avif"
               alt="Erocles Santana e Kiviha Araújo, criadores do método Salva(Vidas) Casamentos"
               loading="lazy"
             />
@@ -706,6 +706,21 @@
         link.addEventListener("click", () => {
           fbq("track", "InitiateCheckout");
         });
+      });
+    </script>
+    <script>
+      document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+      document.addEventListener("keydown", function (e) {
+        if (
+          e.key === "F12" ||
+          (e.ctrlKey &&
+            e.shiftKey &&
+            ["I", "J", "C"].includes(e.key.toUpperCase())) ||
+          (e.ctrlKey && e.key.toUpperCase() === "U")
+        ) {
+          e.preventDefault();
+        }
       });
     </script>
   </body>
