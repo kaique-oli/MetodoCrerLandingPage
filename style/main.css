@@ -157,6 +157,7 @@ p {
   color: var(--white) !important;
   text-shadow: none !important;
 }
+
 .lead {
   font-size: var(--fs-lg);
   color: var(--brown);
